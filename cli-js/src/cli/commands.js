@@ -1,6 +1,8 @@
 import { AppError } from "../errors/appError.js";
 import { ValidationError } from "../errors/validationError.js";
+import { customerRepository } from "../repository/customerRepository.js";
 import { productRepository } from "../repository/productRepository.js";
+import { createCustomer } from "../services/customerService.js";
 import { createProduct, getProduct } from "../services/productService.js";
 
 const productHandlers = {
@@ -17,8 +19,20 @@ const productHandlers = {
   },
 };
 
+const customerHandlers = {
+  async add(flags) {
+    const createdCustomer = await createCustomer(flags);
+    console.log("Müşteri oluşturuldu:", createdCustomer);
+  },
+  async list(flags) {
+    const listCustomer = await customerRepository.getAll();
+    console.table(listCustomer);
+  },
+};
+
 const commands = {
   product: productHandlers,
+  customer: customerHandlers,
 };
 
 export async function runCommand({ positional, flags }) {
@@ -39,6 +53,9 @@ export async function runCommand({ positional, flags }) {
   } catch (error) {
     if (error instanceof AppError) {
       console.log("Hata:", error.message);
+      if (error.details) {
+        console.log("Detay:", error.details);
+      }
     } else {
       throw error;
     }

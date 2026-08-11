@@ -4,5 +4,17 @@
     "price": 999,
     "stock": 5,
     "id": 1
+  },
+  {
+    "name": "Laptop",
+    "price": 10000,
+    "stock": 5,
+    "id": 2
+  },
+  {
+    "name": "Laptop",
+    "price": 10000,
+    "stock": 5,
+    "id": 3
   }
 ]

@@ -4,7 +4,11 @@ import { customerRepository } from "../repository/customerRepository.js";
 import { orderRepository } from "../repository/orderRepository.js";
 import { productRepository } from "../repository/productRepository.js";
 import { createCustomer } from "../services/customerService.js";
-import { createOrder } from "../services/orderService.js";
+import {
+  cancelOrder,
+  createOrder,
+  updateOrderStatus,
+} from "../services/orderService.js";
 import { createProduct, getProduct } from "../services/productService.js";
 
 const productHandlers = {
@@ -53,6 +57,14 @@ const orderHandlers = {
   async list(flags) {
     const listOrder = await orderRepository.getAll();
     console.table(listOrder);
+  },
+  async status(flags) {
+    const statusOrder = await updateOrderStatus(Number(flags.id), flags.status);
+    console.table(statusOrder);
+  },
+  async cancel(flags) {
+    const cancelledOrder = await cancelOrder(Number(flags.id));
+    console.log("Sipariş iptal edildi:", cancelledOrder);
   },
 };
 

@@ -1,8 +1,10 @@
 import { AppError } from "../errors/appError.js";
 import { ValidationError } from "../errors/validationError.js";
 import { customerRepository } from "../repository/customerRepository.js";
+import { orderRepository } from "../repository/orderRepository.js";
 import { productRepository } from "../repository/productRepository.js";
 import { createCustomer } from "../services/customerService.js";
+import { createOrder } from "../services/orderService.js";
 import { createProduct, getProduct } from "../services/productService.js";
 
 const productHandlers = {
@@ -30,9 +32,34 @@ const customerHandlers = {
   },
 };
 
+const orderHandlers = {
+  async add(flags) {
+    flags.customer = Number(flags.customer);
+    const raw = flags.items;
+
+    const parts = raw.split(",");
+
+    const parsed = parts.map((part) => {
+      const [id, qty] = part.split(":");
+      return { productId: Number(id), quantity: Number(qty) };
+    });
+
+    const order = await createOrder({
+      customerId: flags.customer,
+      items: parsed,
+    });
+    console.log("Sipariş Oluşturuldu:", order);
+  },
+  async list(flags) {
+    const listOrder = await orderRepository.getAll();
+    console.table(listOrder);
+  },
+};
+
 const commands = {
   product: productHandlers,
   customer: customerHandlers,
+  order: orderHandlers,
 };
 
 export async function runCommand({ positional, flags }) {

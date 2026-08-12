@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "Test Musteri",
+    "email": "test@test.com",
+    "city": "Istanbul",
+    "createdAt": "2026-08-12T07:24:40.160Z",
+    "id": 1
+  }
+]

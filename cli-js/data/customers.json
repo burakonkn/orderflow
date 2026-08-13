@@ -1,16 +1,1 @@
-[
-  {
-    "name": "Test Musteri",
-    "email": "test@test.com",
-    "city": "Istanbul",
-    "createdAt": "2026-08-12T07:24:40.160Z",
-    "id": 1
-  },
-  {
-    "name": "Burak",
-    "email": "burakaonkn@gmail.com",
-    "city": "Bursa",
-    "createdAt": "2026-08-12T10:59:11.510Z",
-    "id": 2
-  }
-]
+[]

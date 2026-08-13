@@ -10,6 +10,11 @@ import {
   updateOrderStatus,
 } from "../services/orderService.js";
 import { createProduct, getProduct } from "../services/productService.js";
+import {
+  getCityDistribution,
+  getSummaryReport,
+  getTopProduct,
+} from "../services/reportService.js";
 
 const productHandlers = {
   async add(flags) {
@@ -68,10 +73,23 @@ const orderHandlers = {
   },
 };
 
+const reportHandlers = {
+  async summary(flags) {
+    const summary = await getSummaryReport();
+    const topProducts = await getTopProduct();
+    const getCity = await getCityDistribution();
+
+    console.log("Özet:", summary);
+    console.log("En çok satanlar:", topProducts);
+    console.table(getCity);
+  },
+};
+
 const commands = {
   product: productHandlers,
   customer: customerHandlers,
   order: orderHandlers,
+  report: reportHandlers,
 };
 
 export async function runCommand({ positional, flags }) {

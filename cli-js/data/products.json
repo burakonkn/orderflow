@@ -4,5 +4,11 @@
     "price": 15000,
     "stock": 2,
     "id": 1
+  },
+  {
+    "name": "Tablet",
+    "price": 8500,
+    "stock": 5,
+    "id": 2
   }
 ]

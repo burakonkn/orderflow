@@ -12,5 +12,24 @@
     "status": "pending",
     "createdAt": "2026-08-12T08:12:53.842Z",
     "id": 1
+  },
+  {
+    "customerId": 2,
+    "items": [
+      {
+        "productId": 2,
+        "quantity": 3,
+        "unitPrice": 8500
+      },
+      {
+        "productId": 1,
+        "quantity": 2,
+        "unitPrice": 15000
+      }
+    ],
+    "total": 55500,
+    "status": "pending",
+    "createdAt": "2026-08-12T11:00:27.060Z",
+    "id": 2
   }
 ]

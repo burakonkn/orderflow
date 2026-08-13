@@ -10,5 +10,11 @@
     "price": 8500,
     "stock": 5,
     "id": 2
+  },
+  {
+    "name": "Test",
+    "price": 10,
+    "stock": 1,
+    "id": 3
   }
 ]

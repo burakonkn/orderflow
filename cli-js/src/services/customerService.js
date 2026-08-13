@@ -1,5 +1,5 @@
 import { BusinessRuleError } from "../errors/businessRuleError.js";
-import { NotFound } from "../errors/notFoundError.js";
+import { NotFoundError } from "../errors/notFoundError.js";
 import { ValidationError } from "../errors/validationError.js";
 import { customerRepository } from "../repository/customerRepository.js";
 
@@ -33,7 +33,7 @@ export async function createCustomer(input) {
 export async function getCustomer(id) {
   const data = await customerRepository.getById(id);
   if (typeof data === "undefined") {
-    throw new NotFound(`Customer with id ${id} not found`);
+    throw new NotFoundError(`Customer with id ${id} not found`);
   }
   return data;
 }

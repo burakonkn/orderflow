@@ -1,5 +1,5 @@
 import { BusinessRuleError } from "../errors/businessRuleError.js";
-import { NotFound } from "../errors/notFoundError.js";
+import { NotFoundError } from "../errors/notFoundError.js";
 import { ValidationError } from "../errors/validationError.js";
 import { customerRepository } from "../repository/customerRepository.js";
 import { orderRepository } from "../repository/orderRepository.js";
@@ -85,7 +85,7 @@ const STATUSES = ["pending", "confirmed", "shipped", "delivered"];
 export async function updateOrderStatus(id, newStatus) {
   const order = await orderRepository.getById(id);
   if (!order) {
-    throw new NotFound("Order not found.");
+    throw new NotFoundError("Order not found.");
   }
   const currentIndex = STATUSES.indexOf(order.status);
   const newIndex = STATUSES.indexOf(newStatus);
@@ -101,7 +101,7 @@ export async function updateOrderStatus(id, newStatus) {
 export async function cancelOrder(id) {
   const order = await orderRepository.getById(id);
   if (!order) {
-    throw new NotFound("Order not found.");
+    throw new NotFoundError("Order not found.");
   }
   if (!["pending", "confirmed"].includes(order.status)) {
     throw new BusinessRuleError(

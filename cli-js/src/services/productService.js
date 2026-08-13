@@ -1,6 +1,6 @@
 import { AppError } from "../errors/appError.js";
 import { ValidationError } from "../errors/validationError.js";
-import { NotFound } from "../errors/notFoundError.js";
+import { NotFoundError } from "../errors/notFoundError.js";
 import { productRepository } from "../repository/productRepository.js";
 
 export async function createProduct(input) {
@@ -26,7 +26,7 @@ export async function createProduct(input) {
 export async function getProduct(id) {
   const data = await productRepository.getById(id);
   if (typeof data === "undefined") {
-    throw new NotFound(`Product with id ${id} not found`);
+    throw new NotFoundError(`Product with id ${id} not found`);
   }
   return data;
 }

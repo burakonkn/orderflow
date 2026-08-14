@@ -5,3 +5,8 @@ export type OrderStatus =
   | "shipped"
   | "delivered"
   | "cancelled";
+
+export interface CreateOrderInput {
+  customerId: number;
+  items: { productId: number; quantity: number }[];
+}

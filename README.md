@@ -5,8 +5,8 @@
 Bu üç ayrı proje değil. Tek bir proje, üç fazda evriliyor:
 
 1. **JavaScript CLI** (`cli-js/`) — framework'süz, veritabanısız, sadece Node core modülleri ve saf JavaScript ile çalışan bir terminal aracı. ✅ Tamamlandı.
-2. **TypeScript Rewrite** (`cli-ts/`) — aynı CLI'nin, strict tip sistemi, generic'ler ve runtime doğrulamayla yeniden yazılmış hali. 🔜 Sırada.
-3. **Node.js REST API** (`api/`) — aynı iş kurallarının, kimlik doğrulama, gerçek bir veritabanı ve testlerle HTTP üzerinden servis edilen hali. 🔜 Planlanıyor.
+2. **TypeScript Rewrite** (`cli-ts/`) — aynı CLI'nin, strict tip sistemi, generic'ler ve runtime doğrulamayla yeniden yazılmış hali. ✅ Çekirdek tamamlandı (CSV import/export isteğe bağlı olarak ertelendi).
+3. **Node.js REST API** (`api/`) — aynı iş kurallarının, kimlik doğrulama, gerçek bir veritabanı ve testlerle HTTP üzerinden servis edilen hali. 🔜 Sırada.
 
 ## Neden Tek Domain, Üç Kez
 
@@ -23,5 +23,5 @@ Aynı problemi farklı araçlarla yeniden inşa etmek, *araçların* değiştiğ
 ## Fazlar
 
 - [`cli-js/`](./cli-js) — Faz 1, JavaScript CLI. Kurulum ve komut listesi için kendi README'sine bak.
-- `cli-ts/` — Faz 2, henüz başlanmadı.
+- [`cli-ts/`](./cli-ts) — Faz 2, TypeScript Rewrite. Kurulum ve komut listesi için kendi README'sine bak.
 - `api/` — Faz 3, henüz başlanmadı.

@@ -1,0 +1,16 @@
+[
+  {
+    "customerId": 1,
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 2,
+        "unitPrice": 15000
+      }
+    ],
+    "total": 30000,
+    "status": "pending",
+    "createdAt": "2026-08-14T08:24:20.256Z",
+    "id": 1
+  }
+]

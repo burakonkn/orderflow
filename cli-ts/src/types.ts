@@ -27,3 +27,7 @@ export interface CityDistributionEntry {
   city: string;
   orderCount: number;
 }
+
+export type CommandResult<T> =
+  | { ok: true; data: T }
+  | { ok: false; error: string; code: string };

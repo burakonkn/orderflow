@@ -13,7 +13,7 @@ export function validate(schema: z.ZodType, target: "body" | "query" = "body") {
     if (target === "body") {
       req.body = result.data;
     } else if (target === "query") {
-      Object.assign(req.query, result.data);
+      res.locals.query = result.data;
     }
 
     next();

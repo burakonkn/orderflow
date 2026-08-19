@@ -13,6 +13,7 @@ export function errorHandler(
       error: { code: err.code, message: err.message, details: err.details },
     });
   }
+  console.error(err);
   res.status(500).json({
     ok: false,
     error: {

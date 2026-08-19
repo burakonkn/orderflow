@@ -2,3 +2,7 @@ node_modules/
 *.log
 .env
 output/
+.agents/
+.claude/
+.windsurf/
+skills-lock.json

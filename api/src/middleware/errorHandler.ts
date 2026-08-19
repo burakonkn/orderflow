@@ -8,14 +8,11 @@ export function errorHandler(
   next: NextFunction,
 ) {
   if (err instanceof AppError) {
-    return res
-      .status(err.statusCode)
-      .json({
-        ok: false,
-        error: { code: err.code, message: err.message, details: err.details },
-      });
+    return res.status(err.statusCode).json({
+      ok: false,
+      error: { code: err.code, message: err.message, details: err.details },
+    });
   }
-
   res.status(500).json({
     ok: false,
     error: {

@@ -4,6 +4,7 @@ import { categoriesRouter } from "./modules/categories/categories.routes.js";
 import { productsRouter } from "./modules/products/products.routes.js";
 import { customersRouter } from "./modules/customers/customers.routes.js";
 import { ordersRouter } from "./modules/orders/orders.routes.js";
+import { reportsRouter } from "./modules/reports/reports.routes.js";
 
 export const app = express();
 
@@ -12,6 +13,7 @@ app.use("/api/categories", categoriesRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/customers", customersRouter);
 app.use("/api/orders", ordersRouter);
+app.use("/api/reports", reportsRouter);
 
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
